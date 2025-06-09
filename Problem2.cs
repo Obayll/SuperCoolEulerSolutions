@@ -7,9 +7,37 @@
     /// </summary>
     public static class Problem2
     {
-        static public void Run()
+        /// <summary>
+        /// Iterate through the Fibonacci numbers and see if the next value is even. If it is, add it to the sum.
+        /// </summary>
+        /// <remarks>
+        /// There is most likely an arithmetic formula which could be integrated into this solution, but I don't know of it.
+        /// </remarks>
+        private static int FibonacciEvenSum(int max)
         {
+            int first = 1;
+            int second = 2;
 
+            int sum = 0;
+
+            while (second < max)
+            {
+                int third = first + second;
+
+                if (third % 2 == 0)
+                    sum += third;
+
+                first = second;
+                second = third;
+            }
+
+            // Add 2 since it's even and outside of the for loop where sum gets incremented
+            return 2 + sum;
+        }
+
+        public static void Run()
+        {
+            Console.WriteLine($"Problem2: {FibonacciEvenSum(4000000)}");
         }
     }
 }
