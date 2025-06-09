@@ -12,9 +12,6 @@
         /// <summary>
         /// Naive, brute-force solution due to the excessive computation power modern machines have.
         /// </summary>
-        /// <param name="multiple"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
         static private int SumMultiples(int multiple, int max = 1000)
         {
             int sum = 0;
@@ -28,11 +25,16 @@
         /// <summary>
         /// Arithmetic solution using the sum of an arithmetic series.
         /// </summary>
-        /// <param name="multiple"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
         static private int SumMultiplesArith(int multiple, int max = 1000)
         {
+            //tex:
+            //Number of Terms: $$\left\lfloor\frac{{L - 1}}{n}\right\rfloor$$
+            //Where $L$ is the limit and $n$ is the multiple.
+
+            //tex:
+            //Sum of Multiples:$$n * \frac{{k * (k + 1)}}{2}$$
+            //Where $k$ is the number of terms and $n$ is the multiple.
+
             int numTerms = (max - 1) / multiple;
 
             return multiple * (numTerms * (numTerms + 1) / 2);
